@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-	
-	<node name="spawn_sdf" pkg="gazebo_ros" exec="spawn_entity.py" args="-entity buvette -file $(find-pkg-share minilab_model)/urdf/buvette.sdf -x 0 -y 4"> 	
-	</node>
-</launch>
-

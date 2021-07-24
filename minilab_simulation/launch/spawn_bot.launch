@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-
-<launch>	
-  
- 	<node name="spawn_robot1" pkg="gazebo_ros" exec = "spawn_entity.py" args="-file $(find-pkg-share minilab_model)/urdf/minilab_equiped.urdf -x 0.0 -y 0 -z 0.05 -Y 1.57 -entity minilab_equiped" />
-  	
-</launch>
