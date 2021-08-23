@@ -34,6 +34,7 @@ endif()
 
 install(DIRECTORY 
 	launch
+	scripts
 	DESTINATION share/minilab_demo_simulation
 	
 )
