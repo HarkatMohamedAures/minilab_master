@@ -7,9 +7,12 @@
 		<arg name="map" value="$(var map)"/>
 	</include>
 	
-	<node name="map_server" pkg="nav2_map_server" exec="map_server">
-		<param from="$(find-pkg-share minilab_model)/map/map_server_params.yaml"/>
-	</node>
-	<include file = "$(find-pkg-share minilab_navigation)/launch/minilab_nav2_bt.launch"/>
-	<include file = "$(find-pkg-share minilab_navigation)/launch/minilab_amcl.launch"/>
+	<include file = "$(find-pkg-share minilab_navigation)/launch/navigation.launch"/>
+	<include file = "$(find-pkg-share minilab_navigation)/launch/localization_launch.py"/>
+	
+	<node name="rviz" pkg="rviz2" exec="rviz2"/>
+	
+	<executable cmd="bash $(find-pkg-share minilab_demo_simulation)/scripts/minilab_lifecyle_manager" output="screen"/>
+	
+	
 </launch>
