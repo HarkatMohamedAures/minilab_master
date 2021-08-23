@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+	<arg name="map" default="buvette"/>
+	
+	<include file="$(find-pkg-share minilab_simulation)/launch/minilab_simulation.launch">
+		<arg name="map" value="$(var map)"/>
+	</include>
+	
+	<executable cmd="bash $(find-pkg-share minilab_demo_simulation)/scripts/keyboard_teleop_ZQSD.bash" output="screen"/>
+
+	
+</launch>
