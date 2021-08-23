@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<node name = "controller_server" pkg = "nav2_controller" exec = "controller_server">
+		<param name="use_sim_time" value="True"/>
+		<param name="min_x_velocity_threshold" value="0.001"/>
+		<param name="min_y_velocity_threshold" value="0.5"/>
+		<param name="min_theta_velocity_threshold" value="0.001"/>
+		<param name="failure_tolerance" value="0.3"/>
+		<param name="progress_checker_plugin" value="progress_checker"/>
+		<param name="progress_checker">
+			<param name="plugin" value="nav2_controller::SimpleProgressChecker"/>
+			<param name="required_movement_radius" value="0.5"/>
+			<param name="movement_time_allowance" value="10.0"/>
+		</param>
+		<param name="goal_checker_plugins" value="general_goal_checker, " value-sep=", "/>
+		<param name="general_goal_checker">
+			<param name="stateful" value="True"/>
+			<param name="plugin" value="nav2_controller::SimpleGoalChecker"/>
+			<param name="xy_goal_tolerance" value="0.25"/>
+			<param name="yaw_goal_tolerance" value="0.25"/>
+		</param>
+		
+		<param name="controller_plugin" value="FollowPath, " value-sep=", "/>
+		<param name="FollowPath">
+			<param name="plugin" value="dwb_core::DWBLocalPlanner"/>
+			<param name="min_vel_x" value="0.0"/>
+			<param name="min_vel_y" value="0.0"/>
+			<param name="min_vel_theta" value="0.0"/>
+			
+			<param name="max_vel_x" value="0.2"/>
+			<param name="max_vel_y" value="0.0"/>
+			<param name="max_vel_theta" value="1.0"/>
+			<param name="min_vel_xy" value="0.0"/>
+			<param name="max_vel_xy" value="0.2"/>
+			
+			<param name="xy_goal_tolerance" value="0.25"/>
+			<param name="max_vel_y" value="0.0"/>
+		</param>
+	
+	</node>
+	
+	<node name = "planner_server" pkg = "nav2_planner" exec = "planner_server">
+		<param name="expected_planner_frequency" value="20.0"/>
+		<param name="use_sim_time" value="True"/>
+		<param name="planner_plugins" value="GridBased" value-sep=", "/>
+		<param name="GridBased">
+			<param name="plugin" value="nav2_navfn_planner/NavfnPlanner"/>
+			<param name="tolerance" value="0.5"/>
+			<param name="use_astar" value="false"/>
+			<param name="allow_unknown" value="true"/>
+		</param>
+	</node>
+	
+	<node name = "recoveries_server" pkg = "nav2_recoveries" exec = "recoveries_server"/>
+	
+	<node name = "waypoint_follower" pkg = "nav2_waypoint_follower" exec = "waypoint_follower"/>
+	
+	<node name = "nav_bt" pkg="nav2_bt_navigator" exec="bt_navigator">
+		<param name="use_sim_time" value="true"/>
+		<param name="global_frame" value="map"/>
+		<param name="robot_base_frame" value="base_link"/>
+		<param name="transform_tolerance" value="0.2"/>
+		<param name="enable_groot_monitoring" value="True"/>
+		<param name="groot_zmq_publisher_port" value="1666"/>
+		<param name="groot_zmq_server_port" value="1667"/>
+		<param name="default_bt_xml_filename" value="$(find-pkg-share minilab_navigation)/config/basic_bt.xml"/>
+		<param name="goal_blackboard_id" value="goal"/>
+		<param name="goals_blackboard_id" value="goals"/>
+		<param name="path_blackboard_id" value="path"/>
+		<param name="odom_topic" value="/odom"/>
+		<param name="plugin_lib_names" value="nav2_compute_path_to_pose_action_bt_node, nav2_follow_path_action_bt_node, nav2_back_up_action_bt_node, nav2_spin_action_bt_node, nav2_wait_action_bt_node, nav2_clear_costmap_service_bt_node, nav2_is_stuck_condition_bt_node, nav2_goal_reached_condition_bt_node, nav2_initial_pose_received_condition_bt_node, nav2_goal_updated_condition_bt_node, nav2_reinitialize_global_localization_service_bt_node, nav2_rate_controller_bt_node, nav2_distance_controller_bt_node, nav2_speed_controller_bt_node, nav2_recovery_node_bt_node, nav2_pipeline_sequence_bt_node, nav2_round_robin_node_bt_node, nav2_transform_available_condition_bt_node, nav2_time_expired_condition_bt_node, nav2_distance_traveled_condition_bt_node" value-sep=", "/>
+	</node>
+	
+</launch>
