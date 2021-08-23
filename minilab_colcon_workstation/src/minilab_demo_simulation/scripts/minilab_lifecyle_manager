@@ -1,0 +1,58 @@
+#Wait for rviz to launch before activating the nav stack nodes
+
+echo "Waiting fro rviz to start..."
+while [ -z "$(pgrep rviz2)" ]
+do
+	sleep 2
+done
+
+echo "Waiting fro gazebo to start..."
+while [ -z "$(pgrep gzserver)" ]
+do
+	sleep 2
+done
+
+sleep 4
+
+ros2 lifecycle set /map_server configure
+
+
+sleep 2
+
+
+ros2 lifecycle set /map_server activate 
+
+
+ros2 lifecycle set /amcl configure
+
+
+sleep 2
+
+
+ros2 lifecycle set /amcl activate 
+
+ros2 lifecycle set /waypoint_follower configure
+
+
+sleep 2
+
+
+ros2 lifecycle set /waypoint_follower activate 
+
+ros2 lifecycle set /recoveries_server configure
+
+
+sleep 2
+
+
+ros2 lifecycle set /recoveries_server activate 
+
+ros2 lifecycle set /planner_server configure
+
+
+sleep 8
+
+
+ros2 lifecycle set /planner_server activate 
+
+
