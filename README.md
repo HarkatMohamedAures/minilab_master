@@ -3,8 +3,10 @@
 
 minilab simulator in ROS2.
 
-####################################################################################\n
+####################################################################################
+
 ####Dependencies####
+
 This simulator requires the following packages and tools:
 
   colcon https://docs.ros.org/en/foxy/Tutorials/Colcon-Tutorial.html#install-colcon
@@ -18,7 +20,9 @@ This simulator requires the following packages and tools:
   gazebo_ros_pkgs http://gazebosim.org/tutorials?tut=ros2_installing
 
 ####################################################################################
+
 ####installation####
+
 After downloading the simulator's packages, put them in the src folder of your ros2 workspace directory. You can create one by typing the following command:
 
   mkdir -p ros2_ws/src
