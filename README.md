@@ -50,7 +50,7 @@ Notice:
 
 *Check the problems section
 
-**Not all examples are functional and there are some stability issues while usine gazebo. check problems and remaining work sections.
+**Not all examples are functional and there are some stability issues while usine gazebo. check the problems and remaining work sections.
 
 ####################################################################################
 
@@ -63,8 +63,9 @@ Notice:
     rm -r build install
     colcon build
 
-  Note:
-      This problem will be triggered only if more than 2 stl files are used regardless of their size. The error rised by gazebo is a segmentation fault, which seems  to indicate a memory allocation problem. This bug was not present in ROS1 and maybe is due to the gazebo_ros_pkgs package.
+
+   Note:
+      This problem will be triggered only if more than 2 stl files are used regardless of their size. The error rised by gazebo is a segmentation fault, which seems       to indicate a memory allocation problem. This bug was not present in ROS1 and maybe is due to the gazebo_ros_pkgs package.
     
 3/_ Due to the changing of the launch structure in ROS2, nodes no longer have access to the input of a terminal. This will rise a Termios error if the minilab_teleop keyboard nodes are used in a launch file. A workaround to this problem was to write a small shell script that runs the minilab_teleop nodes alone. This script is launched as an executable in the launch file of the package that required minilab_teleop nodes.
   
