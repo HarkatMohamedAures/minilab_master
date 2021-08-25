@@ -30,14 +30,24 @@ After downloading the simulator's packages, put them in the src folder of your r
 Next, you should build and compile the packages using colcon at the root of the workspace:
 
   cd ros2_ws
+  
   colcon build
   
-Now, you can run any example in the minilab_demo_packages launch folder using ros2 launch*.
+Before starting any launch file, the urdf file minilab_equiped shuod modified; each mesh tag must receive the full path to the mesh files in the minilab_model package*.
+  
+Now, you can run any example in the minilab_demo_packages launch folder using ros2 launch**.
 
 Notice:
-*Not all examples are functional and there are some stability issues while usine gazebo. check problems and remaining work sections.
+
+*Check the problems section
+
+**Not all examples are functional and there are some stability issues while usine gazebo. check problems and remaining work sections.
 
 ####################################################################################
+
+####problems####
+
+
 
 
   
