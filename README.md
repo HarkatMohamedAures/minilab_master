@@ -55,6 +55,9 @@ Notice:
 
   colcon build
 
-
-3/_ Due to the changing of the launch structure in ROS2, nodes no longer have access to the input of a terminal. This will rise a Termios error if the minilab_teleop keyboard nodes are used in a launch file. A workaround to this problem was to write a small shell script that run the minilab_teleop nodes alone. This script is launched as an executable in the launch file of the package that required minilab_teleop nodes.
+  Note
+    This problem will be triggered only if more than 2 stl files are used regardless of their size. The error rised by gazebo is a segmentation fault, which seems  to indicate that there is memory allocation problem. 
+    
+3/_ Due to the changing of the launch structure in ROS2, nodes no longer have access to the input of a terminal. This will rise a Termios error if the minilab_teleop keyboard nodes are used in a launch file. A workaround to this problem was to write a small shell script that runs the minilab_teleop nodes alone. This script is launched as an executable in the launch file of the package that required minilab_teleop nodes.
   
+4/_ The navigation, slam and the laser examples in the simulator are still not fully functional. This is due, in part at least, to a problem in the laser scan messages. It could be that the description in the urdf file is not suitable for these packages and it shoudl be changes, this is still a work in progress.  
