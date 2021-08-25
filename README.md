@@ -26,14 +26,14 @@ This simulator requires the following packages and tools:
 After downloading the simulator's packages, put them in the src folder of your ros2 workspace directory. You can create one by typing the following command:
 
   mkdir -p ros2_ws/src
-  
+
+Before starting the compilation, the urdf file minilab_equiped should be modified; each mesh tag must receive the full path to the mesh files in the minilab_model package*.
+
 Next, you should build and compile the packages using colcon at the root of the workspace:
 
   cd ros2_ws
   
   colcon build
-  
-Before starting any launch file, the urdf file minilab_equiped should be modified; each mesh tag must receive the full path to the mesh files in the minilab_model package*.
   
 Now, you can run any example in the minilab_demo_packages launch folder using ros2 launch**.
 
@@ -60,4 +60,4 @@ Notice:
     
 3/_ Due to the changing of the launch structure in ROS2, nodes no longer have access to the input of a terminal. This will rise a Termios error if the minilab_teleop keyboard nodes are used in a launch file. A workaround to this problem was to write a small shell script that runs the minilab_teleop nodes alone. This script is launched as an executable in the launch file of the package that required minilab_teleop nodes.
   
-4/_ The navigation, slam and the laser examples in the simulator are still not fully functional. This is due, in part at least, to a problem in the laser scan messages. It could be that the description in the urdf file is not suitable for these packages and it shoudl be changes, this is still a work in progress.  
+4/_ The navigation, slam and the laser examples in the simulator are still not fully functional. This is due, in part at least, to a problem in the laser scan messages. It could be that the description in the urdf file is not suitable for these packages and it should be changed, this is still a work in progress.  
