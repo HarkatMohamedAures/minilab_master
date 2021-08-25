@@ -47,7 +47,14 @@ Notice:
 
 ####problems####
 
+1/_ While using the robot description in minilab_model/urdf/minilab_equiped.urdf. Gazebo will not even start if the package:// relative urls are used in the mesh tags. To solve this problem, an absolute path had to be used instead.
+
+2/_ Loading too many stl files in minilab_model/urdf/minilab_equiped.urdf will sometimes cause Gazebo to crash. A remedey to this is to delete the build  and install directories and then rebuild the packages from the root of the workspace:
+
+  rm -r build install
+
+  colcon build
 
 
-
+3/_ Due to the changing of the launch structure in ROS2, nodes no longer have access to the input of a terminal. This will rise a Termios error if the minilab_teleop keyboard nodes are used in a launch file. A workaround to this problem was to write a small shell script that run the minilab_teleop nodes alone. This script is launched as an executable in the launch file of the package that required minilab_teleop nodes.
   
