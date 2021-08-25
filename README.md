@@ -9,15 +9,25 @@ minilab simulator in ROS2.
 
 This simulator requires the following packages and tools:
 
-  colcon https://docs.ros.org/en/foxy/Tutorials/Colcon-Tutorial.html#install-colcon
+  colcon:
   
-  joint_state_publisher https://index.ros.org/p/joint_state_publisher/
+    https://docs.ros.org/en/foxy/Tutorials/Colcon-Tutorial.html#install-colcon
   
-  Nav2 https://navigation.ros.org/build_instructions/index.html
+  joint_state_publisher:
+      
+     https://index.ros.org/p/joint_state_publisher/
   
-  Gazebo http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install
+  Nav2:
+    
+    https://navigation.ros.org/build_instructions/index.html
   
-  gazebo_ros_pkgs http://gazebosim.org/tutorials?tut=ros2_installing
+  Gazebo: 
+    
+    http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install
+  
+  gazebo_ros_pkgs: 
+    
+    http://gazebosim.org/tutorials?tut=ros2_installing
 
 ####################################################################################
 
@@ -31,9 +41,8 @@ Before starting the compilation, the urdf file minilab_equiped should be modifie
 
 Next, you should build and compile the packages using colcon at the root of the workspace:
 
-  cd ros2_ws
-  
-  colcon build
+    cd ros2_ws
+    colcon build
   
 Now, you can run any example in the minilab_demo_packages launch folder using ros2 launch**.
 
