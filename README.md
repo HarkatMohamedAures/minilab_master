@@ -31,7 +31,7 @@ This simulator requires the following packages and tools:
 
 ####################################################################################
 
-####installation####
+####Installation####
 
 After downloading the simulator's packages, put them in the src folder of your ros2 workspace directory. You can create one by typing the following command:
 
@@ -53,7 +53,7 @@ Notice:
 
 ####################################################################################
 
-####problems####
+####Problems####
 
 1/_ While using the robot description in minilab_model/urdf/minilab_equiped.urdf. Gazebo will not even start if the package:// relative urls are used in the mesh  file tags. To solve this problem, an absolute path had to be used instead.
 
