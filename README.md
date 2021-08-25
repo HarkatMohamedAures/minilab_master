@@ -33,7 +33,7 @@ Next, you should build and compile the packages using colcon at the root of the 
   
   colcon build
   
-Before starting any launch file, the urdf file minilab_equiped shuod modified; each mesh tag must receive the full path to the mesh files in the minilab_model package*.
+Before starting any launch file, the urdf file minilab_equiped shuod be modified; each mesh tag must receive the full path to the mesh files in the minilab_model package*.
   
 Now, you can run any example in the minilab_demo_packages launch folder using ros2 launch**.
 
