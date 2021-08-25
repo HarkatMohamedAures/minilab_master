@@ -76,8 +76,12 @@ Notice:
 ####################################################################################
 
 ####Remaining work####
-1/_ minilab_demo_gmapping.launch which depends on 4
-2/_ minilab_demo_navigation.launch which depends on the laser scan problem to detect obstacles (there are other problems)
-3/_ minilab_display_laser_with_teleop.launch which depends on 4
-4/_ Migrating RVIZ config files to RVIZ2, they definitly will not work with rviz and i still have not found a clear guid to migrate these files
+
+1/_ minilab_demo_gmapping.launch which depends on 4.
+
+2/_ minilab_demo_navigation.launch which depends on the laser scan problem to detect obstacles. (there are other problems)
+
+3/_ minilab_display_laser_with_teleop.launch which depends on 4.
+
+4/_ Migrating RVIZ config files to RVIZ2, they definitly will not work with rviz and i still have not found a clear guid to migrate these files.
 
